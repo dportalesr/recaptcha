@@ -11,7 +11,9 @@
 
 namespace BrianFaust\Recaptcha;
 
-class ServiceProvider extends \BrianFaust\ServiceProvider\ServiceProvider
+use BrianFaust\ServiceProvider\ServiceProvider;
+
+class RecaptchaServiceProvider extends ServiceProvider
 {
     public function boot()
     {
