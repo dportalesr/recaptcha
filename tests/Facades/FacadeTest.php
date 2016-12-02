@@ -11,9 +11,9 @@
 
 namespace BrianFaust\Tests\Recaptcha\Tests\Facades;
 
-use GrahamCampbell\TestBenchCore\FacadeTrait;
-use BrianFaust\Tests\Recaptcha\AbstractTestCase;
 use BrianFaust\Recaptcha\Recaptcha;
+use BrianFaust\Tests\Recaptcha\AbstractTestCase;
+use GrahamCampbell\TestBenchCore\FacadeTrait;
 
 class FacadeTest extends AbstractTestCase
 {
