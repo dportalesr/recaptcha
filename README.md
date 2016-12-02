@@ -11,20 +11,13 @@ $ composer require faustbrian/laravel-recaptcha
 And then include the service provider within `app/config/app.php`.
 
 ``` php
-'providers' => [
-    // ... Illuminate Providers
-    // ... App Providers
-    BrianFaust\Recaptcha\ServiceProvider::class
-];
+BrianFaust\Recaptcha\RecaptchaServiceProvider::class
 ```
 
 And, for convenience, add a facade alias to this same file at the bottom:
 
 ``` php
-'aliases' => [
-    // ... Illuminate Facades
-    'Recaptcha' => BrianFaust\Recaptcha\Facades\Recaptcha::class
-];
+'Recaptcha' => BrianFaust\Recaptcha\Facades\Recaptcha
 ```
 
 ## Configuration
@@ -34,7 +27,7 @@ Laravel Recaptcha supports optional configuration.
 To get started, you'll need to publish all vendor assets:
 
 ```bash
-$ php artisan vendor:publish --provider="BrianFaust\Recaptcha\ServiceProvider"
+$ php artisan vendor:publish --provider="BrianFaust\Recaptcha\RecaptchaServiceProvider"
 ```
 
 This will create a `config/recaptcha.php` file in your app that you can modify to set your configuration. Also, make sure you check for changes to the original config file in this package between releases.
