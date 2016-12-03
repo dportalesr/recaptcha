@@ -9,13 +9,15 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace BrianFaust\Recaptcha;
 
 use BrianFaust\ServiceProvider\ServiceProvider;
 
 class RecaptchaServiceProvider extends ServiceProvider
 {
-    public function boot()
+    public function boot(): void
     {
         $this->publishConfig();
 
@@ -40,7 +42,7 @@ class RecaptchaServiceProvider extends ServiceProvider
         }
     }
 
-    public function register()
+    public function register(): void
     {
         parent::register();
 
@@ -54,12 +56,12 @@ class RecaptchaServiceProvider extends ServiceProvider
         });
     }
 
-    public function provides()
+    public function provides(): array
     {
         return array_merge(parent::provides(), ['recaptcha']);
     }
 
-    public function getPackageName()
+    public function getPackageName(): string
     {
         return 'recaptcha';
     }
