@@ -13,9 +13,9 @@ declare(strict_types=1);
 
 namespace BrianFaust\Recaptcha;
 
-use BrianFaust\ServiceProvider\ServiceProvider;
+use BrianFaust\ServiceProvider\AbstractServiceProvider;
 
-class RecaptchaServiceProvider extends ServiceProvider
+class RecaptchaServiceProvider extends AbstractServiceProvider
 {
     public function boot(): void
     {
