@@ -1,8 +1,5 @@
 <?php
 
-
-declare(strict_types=1);
-
 /*
  * This file is part of Laravel Recaptcha.
  *
@@ -26,13 +23,13 @@ class Recaptcha
 
     private $config = [
         'language' => 'en-GB',
-        'data'     => [
-            'data-sitekey'          => null,
-            'data-theme'            => 'light',
-            'data-type'             => 'image',
-            'data-size'             => 'normal',
-            'data-tabindex'         => '0',
-            'data-callback'         => null,
+        'data' => [
+            'data-sitekey' => null,
+            'data-theme' => 'light',
+            'data-type' => 'image',
+            'data-size' => 'normal',
+            'data-tabindex' => '0',
+            'data-callback' => null,
             'data-expired-callback' => null,
         ],
     ];
@@ -47,7 +44,7 @@ class Recaptcha
 
     public function render(): View
     {
-        return view('recaptcha::recaptcha', $this->config)->render();
+        return view('laravel-recaptcha::recaptcha', $this->config)->render();
     }
 
     public function verify(Request $request)

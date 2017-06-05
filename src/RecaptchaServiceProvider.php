@@ -1,8 +1,5 @@
 <?php
 
-
-declare(strict_types=1);
-
 /*
  * This file is part of Laravel Recaptcha.
  *
@@ -14,19 +11,23 @@ declare(strict_types=1);
 
 namespace BrianFaust\Recaptcha;
 
-use BrianFaust\ServiceProvider\AbstractServiceProvider;
+use Illuminate\Support\ServiceProvider;
 
-class RecaptchaServiceProvider extends AbstractServiceProvider
+class RecaptchaServiceProvider extends ServiceProvider
 {
-    public function boot(): void
+    public function boot()
     {
-        $this->publishConfig();
+        $this->publishes([
+            __DIR__.'/../config/laravel-recaptcha.php' => config_path('laravel-recaptcha.php'),
+        ], 'config');
 
-        $this->publishViews();
+        $this->publishes([
+            __DIR__.'/../resources/views' => base_path('resources/views/vendor/laravel-recaptcha'),
+        ], 'views');
 
-        $this->loadViews();
+        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'laravel-recaptcha');
 
-        $this->loadTranslations();
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'laravel-recaptcha');
 
         $app = $this->app;
 
@@ -43,27 +44,15 @@ class RecaptchaServiceProvider extends AbstractServiceProvider
         }
     }
 
-    public function register(): void
+    public function register()
     {
-        parent::register();
-
-        $this->mergeConfig();
+        $this->mergeConfigFrom(__DIR__.'/../config/laravel-recaptcha.php', 'laravel-recaptcha');
 
         $this->app->bind('recaptcha', function ($app) {
             return new Recaptcha(
-                $app->config['recaptcha.site_key'],
-                $app->config['recaptcha.secret_key']
+                $app->config['laravel-recaptcha.site_key'],
+                $app->config['laravel-recaptcha.secret_key']
             );
         });
-    }
-
-    public function provides(): array
-    {
-        return array_merge(parent::provides(), ['recaptcha']);
-    }
-
-    public function getPackageName(): string
-    {
-        return 'recaptcha';
     }
 }
