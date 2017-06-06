@@ -15,6 +15,9 @@ use Illuminate\Support\ServiceProvider;
 
 class RecaptchaServiceProvider extends ServiceProvider
 {
+    /**
+     * Bootstrap any application services.
+     */
     public function boot()
     {
         $this->publishes([
@@ -33,26 +36,57 @@ class RecaptchaServiceProvider extends ServiceProvider
 
         $app->recaptcha->setLanguage($app->getLocale());
 
-        $app->validator->extend('recaptcha', function ($attribute, $value) use ($app) {
-            return $app->recaptcha->verify($app['request']);
-        });
+        $this->registerValidationRule($app);
 
-        if ($app->bound('form')) {
-            $app->form->macro('recaptcha', function ($attributes = []) use ($app) {
-                return $app->recaptcha->render();
-            });
-        }
+        $this->registerFormMacro($app);
     }
 
+    /**
+     * Register any application services.
+     */
     public function register()
     {
         $this->mergeConfigFrom(__DIR__.'/../config/laravel-recaptcha.php', 'laravel-recaptcha');
 
+        $this->registerBuilder();
+    }
+
+    /**
+     * Register the builder.
+     */
+    private function registerBuilder()
+    {
         $this->app->bind('recaptcha', function ($app) {
             return new Recaptcha(
                 $app->config['laravel-recaptcha.site_key'],
                 $app->config['laravel-recaptcha.secret_key']
             );
         });
+    }
+
+    /**
+     * Register the validation rule.
+     *
+     * @param \Illuminate\Contracts\Foundation\Application $app
+     */
+    private function registerValidationRule($app)
+    {
+        $app->validator->extend('recaptcha', function ($attribute, $value) use ($app) {
+            return $app->recaptcha->verify($app['request']);
+        });
+    }
+
+    /**
+     * Register the form macro.
+     *
+     * @param \Illuminate\Contracts\Foundation\Application $app
+     */
+    private function registerFormMacro($app)
+    {
+        if ($app->bound('form')) {
+            $app->form->macro('recaptcha', function ($attributes = []) use ($app) {
+                return $app->recaptcha->render();
+            });
+        }
     }
 }
