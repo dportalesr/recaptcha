@@ -11,8 +11,8 @@
 
 namespace BrianFaust\Recaptcha;
 
-use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Http\Request;
 use ReCaptcha\ReCaptcha as GoogleReCaptcha;
 
 class Recaptcha
