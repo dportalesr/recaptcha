@@ -14,8 +14,8 @@ declare(strict_types=1);
 namespace BrianFaust\Tests\Recaptcha\Tests\Facades;
 
 use BrianFaust\Recaptcha\Recaptcha;
-use GrahamCampbell\TestBenchCore\FacadeTrait;
 use BrianFaust\Tests\Recaptcha\AbstractTestCase;
+use GrahamCampbell\TestBenchCore\FacadeTrait;
 
 class FacadeTest extends AbstractTestCase
 {

@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace BrianFaust\Recaptcha;
 
-use Illuminate\View\View;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 use ReCaptcha\ReCaptcha as GoogleReCaptcha;
 
 class Recaptcha
