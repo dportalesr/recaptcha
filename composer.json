@@ -1,16 +1,24 @@
 {
     "name": "artisanry/recaptcha",
     "description": "google/recaptcha Wrapper for Laravel 5.",
-    "keywords": ["laravel", "framework", "Laravel-messageable", "Laravel Messageable", "laravel-recaptcha"],
+    "keywords": [
+        "laravel",
+        "framework",
+        "Laravel-messageable",
+        "Laravel Messageable",
+        "laravel-recaptcha"
+    ],
     "license": "MIT",
-    "authors": [{
-        "name": "Brian Faust",
-        "email": "hello@basecode.sh",
-        "homepage": "https://basecode.sh"
-    }],
+    "authors": [
+        {
+            "name": "Brian Faust",
+            "email": "hello@basecode.sh",
+            "homepage": "https://basecode.sh"
+        }
+    ],
     "require": {
-        "php": "^7.1",
-        "illuminate/support": "^5.6",
+        "php": "^7.2",
+        "illuminate/support": "^5.8",
         "google/recaptcha": "^1.1"
     },
     "require-dev": {
