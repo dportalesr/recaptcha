@@ -1,12 +1,12 @@
 {
-    "name": "faustbrian/laravel-recaptcha",
+    "name": "artisanry/recaptcha",
     "description": "google/recaptcha Wrapper for Laravel 5.",
-    "keywords": ["laravel", "framework", "Laravel-messageable", "Laravel Messageable", "Brian Faust", "faustbrian", "laravel-recaptcha"],
+    "keywords": ["laravel", "framework", "Laravel-messageable", "Laravel Messageable", "laravel-recaptcha"],
     "license": "MIT",
     "authors": [{
         "name": "Brian Faust",
-        "email": "hello@brianfaust.me",
-        "homepage": "https://brianfaust.me"
+        "email": "hello@basecode.sh",
+        "homepage": "https://basecode.sh"
     }],
     "require": {
         "php": "^7.1",
@@ -20,12 +20,12 @@
     },
     "autoload": {
         "psr-4": {
-            "BrianFaust\\Recaptcha\\": "src/"
+            "Artisanry\\Recaptcha\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "BrianFaust\\Tests\\Recaptcha\\": "tests"
+            "Artisanry\\Tests\\Recaptcha\\": "tests"
         }
     },
     "config": {
@@ -38,10 +38,10 @@
         },
         "laravel": {
             "providers": [
-                "BrianFaust\\Recaptcha\\RecaptchaServiceProvider"
+                "Artisanry\\Recaptcha\\RecaptchaServiceProvider"
             ],
             "aliases": {
-                "Recaptcha": "BrianFaust\\Recaptcha\\Facades\\Recaptcha"
+                "Recaptcha": "Artisanry\\Recaptcha\\Facades\\Recaptcha"
             }
         }
     },
