@@ -44,7 +44,7 @@ class Recaptcha
         $this->setSiteKey($this->siteKey);
     }
 
-    public function render(): View
+    public function render(): String
     {
         return view('laravel-recaptcha::recaptcha', $this->config)->render();
     }
